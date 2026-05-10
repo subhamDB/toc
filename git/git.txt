@@ -1,0 +1,16 @@
+git --version
+
+git init
+
+git add .
+
+git commit -m "first commit"
+
+   git config --global user.email "sansamxyz9.com"
+   git config --global user.name "subhamDB" 
+
+git remote add origin YOUR_GITHUB_REPO_LINK
+
+git branch -M main
+
+git push -u origin main

@@ -1,0 +1,32 @@
+docker -v
+
+docker images        =cheack img
+
+docker ps        =cheack container
+
+docker login dhi.io
+
+go to docker hub and pull imgs and cheack again imgs =docker images
+
+create container id = docker run --name JAVA -it -d openjdk:27-ea-trixie
+
+cheack container = docker ps
+
+to write java program in jshell = docker exec -it JAVA jshell 
+program :
+
+System.out.println("Hello Docker");
+
+int a = 10; 
+int b = 20; 
+System.out.println(a+b);
+
+To stop container = /exit 
+
+Stop Container = docker stop JAVA
+
+Remove Container = docker rm JAVA
+
+docker image prune -a
+
+

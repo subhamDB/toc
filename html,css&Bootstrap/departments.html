@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<style>
+    /* DEPARTMENT CONTAINER */
+.department-container{
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+/* DEPARTMENT BOX */
+.department-box{
+    background-color: #1e1e1e;
+    padding: 25px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+}
+
+
+/* SECTION HEADING */
+.department-box h2{
+    color: #00adb5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* LIST */
+.department-box ul{
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+
+/* LIST ITEMS */
+.department-box ul li{
+    font-size: 18px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+
+/* HOVER EFFECT */
+.department-box ul li:hover{
+    color: #00adb5;
+    transform: translateX(5px);
+}
+
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .department-box{
+        width: 90%;
+    }
+
+}
+</style>
+<body>
+   <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="about.html">About</a></li>
+
+            <li><a href="departments.html">Departments</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+    </nav>
+    <h1>Department</h1>
+    <div class="department-container">
+
+    <!-- First Section -->
+    <div class="department-box">
+
+        <h2>Engineering Departments</h2>
+
+        <ul>
+            <li>Information Technology (IT)</li>
+            <li>Computer Engineering (CS)</li>
+            <li>Electronics & Telecommunication (ETC)</li>
+            <li>Electronics & Communication (ECE)</li>
+            <li>Electrical Engineering</li>
+        </ul>
+
+    </div>
+
+    <!-- Second Section -->
+    <div class="department-box">
+
+        <h2>Other Departments</h2>
+
+        <ul>
+            <li>Mechanical Engineering</li>
+            <li>Civil Engineering</li>
+            <li>Artificial Intelligence & Robotics (A&R)</li>
+            <li>MBA</li>
+            <li>Artificial Intelligence & Data Science (AIDS)</li>
+        </ul>
+
+    </div>
+
+</div>
+    
+</body>
+</html>

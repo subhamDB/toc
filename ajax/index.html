@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="card p-4 shadow">
+
+        <h2 class="text-center mb-4">User Registration</h2>
+
+        <form id="registerForm">
+
+            <div class="mb-3">
+                <label>Name</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+
+            <button class="btn btn-primary w-100">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // Get input values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    // Create object
+    let user = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+    // AJAX POST Method
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
+
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = function(){
+
+        if(xhr.status == 201){
+
+            // Get existing users
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Push new user
+            users.push(user);
+
+            // Save again
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Registration Successful");
+
+            // Redirect new page
+            window.location.href = "users.html";
+        }
+    };
+
+    xhr.send(JSON.stringify(user));
+
+});
+
+</script>
+
+</body>
+</html>
