@@ -1,0 +1,65 @@
+1. Introduction & Objective
+
+The Car Service Management System is a centralized web-based application designed to bridge the gap between car owners and vehicle service centers. The primary objective of this system is to digitize and automate the lifecycle of car servicing—from the moment a customer books a wash or detailing appointment, through the mechanic's operational workflow, down to the final payment. By providing dedicated interfaces for Customers, Service Providers, and Administrators, the system ensures transparency, reduces manual scheduling errors, and improves overall customer satisfaction.
+2. Technology Stack & Architecture
+
+Based on the deployment constraints, the system operates on a lightweight, highly decoupled architecture:
+
+    Frontend (Client-Side): Pure HTML5, CSS3, and Vanilla JavaScript (No heavy frameworks like React or Angular) to ensure fast load times and broad browser compatibility.
+
+    Backend (Server-Side): Python utilizing the Django Web Framework to handle business logic, routing, and user authentication securely.
+
+    Database: MySQL, providing a robust relational structure to maintain transactional integrity for bookings and user data.
+
+    Environment: Django development server operating in a CPU-only environment.
+
+3. Core System Modules
+
+The system theory is divided into three primary interacting modules:
+A. Customer Module
+
+This module dictates the user journey for vehicle owners seeking services.
+
+    Authentication: Secure Registration and Login gateways.
+
+    Service Catalog: Users can browse and select from categorized service types: Basic Wash, Premium Wash, and Full Detailing.
+
+    Scheduling & Logistics: Customers select their preferred date and time. Crucially, they can toggle a "Vehicle Pickup & Drop" option, which alters the backend logistical flow.
+
+    Dashboard & Tracking: A centralized hub where customers can view their active booking status in real-time, review past service history, and generate invoices.
+
+    Payment Gateway: Processing of final payments (Online/Cash) once a service is marked as completed by the provider.
+
+B. Service Provider Module (Mechanic/Staff)
+
+This module is designed for the operational staff executing the car services.
+
+    Dashboard Access: Secure login to view a personalized queue of assigned active and pending bookings.
+
+    State Management: The core responsibility of the provider is to drive the system's state machine. They update the booking status sequentially: Pending → In Progress → Completed.
+
+    Customer Communication: As the provider updates the service status, the system utilizes this module to send automated push/email notifications to the customer, keeping them informed of their vehicle's status.
+
+C. Admin Module (System Oversight)
+
+The administrative backend ensures the smooth operation of the entire platform.
+
+    User Management: Admins can oversee, add, edit, or block registered customers and service providers.
+
+    Catalog Management: The ability to dynamically add, edit, or remove service packages (e.g., updating the price of a "Premium Wash").
+
+    Global Monitoring: A master view of all bookings across the platform to resolve disputes, monitor daily revenue, and track overall system efficiency.
+
+4. System Workflow (The Booking Lifecycle)
+
+The theoretical flow of data through the system operates as follows:
+
+    Initiation: A registered customer submits a booking request specifying the wash type, timestamp, and pickup requirements.
+
+    Assignment: The Django backend processes this request, stores it in the MySQL database as Pending, and assigns it to an available Service Provider.
+
+    Execution: The Service Provider logs in, views the newly assigned task, and begins work, transitioning the state to In Progress. This automatically triggers a notification to the customer.
+
+    Completion & Billing: Upon finishing the vehicle, the provider marks the job as Completed. The system calculates the final bill based on the selected service type and any pickup fees, transitioning the state to Waiting_For_Payment.
+
+    Closure: The customer processes the payment. The system validates the transaction, generates a receipt, and updates the booking to its final state: Paid_&_Closed.
